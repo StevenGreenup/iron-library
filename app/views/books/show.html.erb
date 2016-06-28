@@ -1,0 +1,16 @@
+
+<div class="col-sm-6">
+  <div class="well">
+
+
+  Title: <%= @book.title %><br>
+  Author: <%= @book.author.full_name %><br><br><br><br><br>
+  <%= link_to 'All Books', root_path, class:"btn btn-primary" %>
+  <%= link_to 'Edit', edit_book_path(id: @book.id), class:"btn btn-primary" %>
+  <%= link_to "Delete", book_path(id: @book.id), method: 'delete', class:"btn btn-danger" %><br>
+    </div>
+</div>
+
+<div class="col-sm-6">
+  <%= image_tag("#{@book.photo_url}") %>
+</div>
