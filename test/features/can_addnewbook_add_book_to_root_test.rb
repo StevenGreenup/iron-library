@@ -14,7 +14,7 @@ class CanAddnewbookAddBookToRootTest < Capybara::Rails::TestCase
     fill_in "Photo url", with: "http://cdn3.volusion.com/jtoq7.b7owf/v/vspfiles/photos/ADVENTURES_OF_HUCKLEBERRY_FINN-2.jpg"
     fill_in "Price in cents", with: "1000"
     select 'Mark Twain', from: 'Author'
-    click_link "Create Book"
+    click_button "Create Book"
 
   end
 end
