@@ -47,3 +47,9 @@ end
 
 gem 'bootstrap-sass'
 gem 'mechanize'
+gem 'minitest-rails'
+
+group :test do
+  gem "minitest-rails-capybara"
+  gem 'launchy'
+end
