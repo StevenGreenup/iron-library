@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
+      session[:username] = @user.username
+
       redirect_to root_path, notice: "Welcome!"
     else
       render :new
