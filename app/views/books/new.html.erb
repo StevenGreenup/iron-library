@@ -1,15 +1,15 @@
 <%= form_for @book do |f| %>
 
-<%= f.label :title %>
-<%= f.text_field :title %><br>
-<%= f.label :photo_url %>
-<%= f.text_field :photo_url %><br>
-<%= f.label :price_in_cents %>
-<%= f.text_field :price_in_cents %><br>
-<%= f.label :author_id, 'Author' %>
-<%= f.collection_select :author_id, Author.all, :id, :full_name, {prompt: true} %><br>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %><br>
+  <%= f.label :price_in_cents %>
+  <%= f.text_field :price_in_cents %><br>
+  <%= f.label :author_id, 'Author' %>
+  <%= f.collection_select :author_id, Author.all, :id, :full_name, {prompt: true} %><br>
 
 
 
-<%= f.submit %>
+  <%= f.submit %>
 <% end %>
