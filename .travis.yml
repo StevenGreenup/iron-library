@@ -15,4 +15,3 @@ deploy:
     repo: StevenGreenup/iron-library
       run:
     - "rake db:migrate"
-    - "rake cleanup"
