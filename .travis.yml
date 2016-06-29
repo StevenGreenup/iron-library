@@ -13,5 +13,3 @@ deploy:
   app: thebookemporium
   on:
     repo: StevenGreenup/iron-library
-      run:
-    - "rake db:migrate"
