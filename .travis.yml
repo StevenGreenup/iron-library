@@ -1,8 +1,18 @@
 language: ruby
 rvm:
-  - 2.3.0
+- 2.3.0
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: GU5knMaXkfCZV7wDYQ5sRw3ZvuvzILPVEh1ISfdMFU2czwuTcYLHZWcMD9zZ2LxjV/yuXFWbN88sJRFD0KC9ITNiKKHgnGHrtKespPkbgRhloW+NbJLEFHzWZnN2L9C9AyQwNPBiQxkUs9rNXA6gFDvo1dYESuugbpsvZj30FCHezuqF9CQv525YI3tbgqOCaOQb9eNPyLotjc8klCuyGE+2xgrd+ZL2YPw2HUXE5KtoreNdOGjVjbp0w28o5BMvjQXngn+T1wyV/U5AbXvLdGl1eIzrDxcGKHnO+yRP9Pxo/RVxdjTU14TrEpCisV/6NqV6ksNYjMmsAlwZS2VrEAEOcCUM9+0oD1l1cZNGvzeO98oDE1LHi004Xx9vOJ8HAZZYlhMBqx8F6oxfWxG120RTE/b3Jg9On7dICiU71xPLvyo/ohz0cF1nQJ3WkIhibc86bQo+xwNSSon7yp2BGYJUJ1QuPMJTBgAeI/bkI5CljtEf6UokVG1F6f/bGkFEwHe7cJ+vwQfg8oK1iyewjbuq+K7qujfIPzlJ0czjsLcqZJ2lo4hYuv9I5fCdJt3JuH441le1bY/IbCJA7G35FIOsRmjPS6XH1LIN1ZfMSxiECXrobDXxvWWJadWt6yhmmiuaq4zygrzPM4IxrcTCSZ3GfvfmDEq7o2j1sGKtwz8=
+  app: thebookemporium
+  on:
+    repo: StevenGreenup/iron-library
+      run:
+    - "rake db:migrate"
+    - "rake cleanup"
