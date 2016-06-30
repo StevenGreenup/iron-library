@@ -9,13 +9,11 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @authors = Author.all
-
     # @agent = Mechanize.new
     # @page = @agent.get('http://www.amazon.com/gp/bestsellers/2015/books/')
-    # @images = @page.search("#specific img")
     #
-    # <% @page.search('.zg_itemWrapper .zg_image .zg_itemImageImmersion a alt').each do |photo| %>
-    # <%= photo.text %><br>
+    # <% @page.links.each do |link| %>
+    # <%= link.text %>
     # <% end %>
 
   end

@@ -22,9 +22,11 @@ Rails.application.routes.draw do
 
   post 'authors' => 'authors#create'
 
+
   get 'registration' => 'users#new', as: :new_user
 
   post 'registration' => 'users#create', as: :create_user
+
 
   get 'sign_in' => 'sessions#new', as: :sign_in
 
