@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action except: [:show, :index] do
+  before_action except: [:index] do
     if session[:username].nil?
       redirect_to sign_in_path, notice: "You must sign in!"
     end

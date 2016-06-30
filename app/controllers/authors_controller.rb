@@ -1,5 +1,10 @@
 class AuthorsController < ApplicationController
 
+  before_action except: [:show] do
+    if session[:username].nil?
+      redirect_to sign_in_path, notice: "You must sign in!"
+    end
+  end
 
   def show
     @author = Author.find_by id: params[:id]
