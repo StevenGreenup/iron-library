@@ -18,9 +18,7 @@
 
   </div>
   <% if notice %>
-  <p>
-      <%= notice %>
-  </p>
+  <div class="alert alert-success" role="alert"><%= notice %></div>
   <% end %>
 
 <%= yield %>

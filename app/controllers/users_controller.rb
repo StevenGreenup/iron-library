@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:username] = @user.username
 
-      redirect_to root_path, notice: "Welcome!"
+      redirect_to root_path, notice: "Welcome to The Book Emporium #{@user.username}!"
     else
       render :new
     end
