@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  has_secure_password
+  has_many :checkouts
+  has_many :books, through: :checkouts
+
 end

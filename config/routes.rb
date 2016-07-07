@@ -27,12 +27,11 @@ Rails.application.routes.draw do
 
   post 'registration' => 'users#create', as: :create_user
 
+get 'checkouts/new' => 'checkouts#new', as: :new_checkout
+post 'checkouts' => 'checkouts#create', as: :checkouts
+post 'checkouts/:id/checkin' => 'checkouts#checkin', as: :checkin
 
-  get 'sign_in' => 'sessions#new', as: :sign_in
 
-  post 'sign_in' => 'sessions#create'
-
-  delete 'sign_in' => 'sessions#delete'
 
 
 

@@ -1,0 +1,18 @@
+<h1>Checkout</h1>
+
+<%= form_for @checkout do |f| %>
+  <div class="">
+    <%= f.label :book %>
+    <%= f.collection_select :book_id, Book.all, :id, :title, prompt: true %>
+  </div>
+
+  <div class="">
+    <%= f.label :user %>
+    <%= f.collection_select :user_id, User.all, :id, :username, prompt: true %>
+  </div>
+
+  <div class="">
+    <%= f.submit %>
+  </div>
+
+<% end %>

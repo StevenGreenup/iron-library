@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629181720) do
+ActiveRecord::Schema.define(version: 20160707122710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.text   "Bio"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.text    "Bio"
+    t.integer "user_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -27,6 +28,16 @@ ActiveRecord::Schema.define(version: 20160629181720) do
     t.text    "photo_url"
     t.integer "price_in_cents"
     t.integer "author_id"
+    t.integer "user_id"
+    t.boolean "available",      default: true
+  end
+
+  create_table "checkouts", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "checked_out", default: true
   end
 
   create_table "users", force: :cascade do |t|

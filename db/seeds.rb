@@ -7,8 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Author.delete_all
 Book.delete_all
+User.delete_all
+
+User.create username: "GREENUP", password: "test"
+User.create username: "Red", password: "test"
+
 Author.create first_name: "Stephen", last_name: "King", Bio: "Stephen Edwin King (born September 21, 1947) is an American author of contemporary horror, supernatural fiction, suspense, science fiction, and fantasy."
 Book.create title: "The Shining", photo_url:"https://upload.wikimedia.org/wikipedia/en/4/4c/Shiningnovel.jpg", price_in_cents: 899, author_id: 1
-
-User.delete_all
-User.create username: "GREENUP", password: "test"

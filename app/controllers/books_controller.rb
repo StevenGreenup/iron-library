@@ -1,21 +1,9 @@
 class BooksController < ApplicationController
 
-  before_action except: [:index] do
-    if session[:username].nil?
-      redirect_to sign_in_path, notice: "You must sign in!"
-    end
-  end
+
 
   def index
     @books = Book.all
-    @authors = Author.all
-    # @agent = Mechanize.new
-    # @page = @agent.get('http://www.amazon.com/gp/bestsellers/2015/books/')
-    #
-    # <% @page.links.each do |link| %>
-    # <%= link.text %>
-    # <% end %>
-
   end
 
   def show
@@ -61,5 +49,26 @@ class BooksController < ApplicationController
     Book.find(params[:id]).destroy
     redirect_to root_path
   end
+
+  def checkout
+    @book = Book.find_by id: params[:id]
+    # @book.update_attributes(available: false)
+    # if @book.save
+    #   redirect_to root_path
+    # else
+    #   flash[:notice] = "Book is not available"
+    # end
+  end
+
+  def checkin
+    @book = Book.find_by id: params[:id]
+    # @book.update_attributes(available: false)
+    # if @book.save
+    #   redirect_to root_path
+    # else
+    #   flash[:notice] = "Book is not available"
+    # end
+  end
+
 
 end
