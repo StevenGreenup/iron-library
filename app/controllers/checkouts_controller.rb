@@ -20,9 +20,15 @@ class CheckoutsController < ApplicationController
   end
 
   def checkin
-    @checkout = Checkout.find(params[:id])
-    @checkout.update checked_out: false
-    redirect_to root_path
+    @checkout = Checkout.find_by book_id: params[:book_id], checked_out: true
+    # SELECT  "checkouts".* FROM "checkouts" WHERE "checkouts"."book_id" = $1 AND "checkouts"."checked_out" = $2 LIMIT 1  [["book_id", 1], ["checked_out", "t"]]
+    if @checkout.nil?
+      redirect_to root_path, notice: "Book not found or not available"
+    else
+      @checkout.book.update available: true
+      @checkout.update checked_out: false
+      redirect_to root_path
+    end
   end
 
 end

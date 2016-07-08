@@ -1,3 +1,25 @@
+
+
+
+checkout body
+=====================
+post api/checkouts
+
+{
+    "checkout": {
+        "user_id":
+            "1"
+        ,
+        "book_id":
+            "1"
+        }
+}
+
+checkin
+==================
+post api/checkouts/:book_id/checkin
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the

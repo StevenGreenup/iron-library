@@ -3,6 +3,8 @@
     <div class="col-sm-6">
 
         <div class="well">
+
+
             <% @books.each do |book| %>
             <div class="media">
                 <div class="media-left media-middle">
@@ -18,9 +20,9 @@
                     <%= link_to book.author.full_name, author_path(id: book.author_id) %><br>
 
                     <% if book.available? %>
-                      <%= link_to 'Check out', new_checkout_path %>
+                      <%= link_to 'Check out', new_checkout_path(book_id: book.id) %>
                     <% else %>
-                      <%= link_to 'Check in', checkin_path(id: book.checkouts.first.id), method: :post %>
+                      <%= link_to 'Check in', checkin_path(book_id: book.id), method: :post %>
                     <% end %>
                 </div>
             </div>
